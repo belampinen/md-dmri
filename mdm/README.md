@@ -1,5 +1,6 @@
-# Multidimensional data management (MDM). This package contains functions
-# for building the local data structure.
+# Multidimensional data management (MDM). 
+
+This package contains functions for building the local data structure.
  
 We work with a structure often referred to as 's'. This structure has the 
 following fields
@@ -8,6 +9,7 @@ following fields
 * s.xps     - the eXperimental Parameter Structure
 * s.mask_fn - (optional) path to a nifti file with a 3D mask
                that determines which parts of the data that contains
+               actual data and not just background 
 
 The methods are described briefly [here](methods/README.md), in some more detail in two review articles,<sup>1,2</sup> and more exhaustively in the original publications cited for each method.
 
@@ -26,41 +28,41 @@ to describe the b-tensor.
 
 ## A) General parameters
 
-* - n:          number of images/signal values (fourth dimension). All 
+- n:          number of images/signal values (fourth dimension). All 
               parameters need to have n entries.
 
-* - t_ex:       cumulative time from start of the experiment to the time of 
+- t_ex:       cumulative time from start of the experiment to the time of 
               the excitation pulse
 
-* - t_acq:      time from excitation to readout of echo, i.e., k = 0 
+- t_acq:      time from excitation to readout of echo, i.e., k = 0 
               (typically equals te in a SE sequence)
 
-* - intention:  a string that describes the intention of the experiment, 
+- intention:  a string that describes the intention of the experiment, 
               for example
                 - PGSE/DTI
                 - DDE/uFA
                 - Angular-DDE
                 - FEXI
 
-* - slice_order: not yet defined 
+- slice_order: not yet defined 
 
-* - a_ind:      Averaging index. After averaging (arithmetic or geometric),
+- a_ind:      Averaging index. After averaging (arithmetic or geometric),
               there will be max(a_ind) number of images left.
 
-* - s_ind:      Series index. Refers to data acquired in different series, 
+- s_ind:      Series index. Refers to data acquired in different series, 
               for example, with different prescans (e.g. gain adjustment).
               Can also index acquisitions with different echo times et c.
               
 
 Potentially but not necessarily automatically calculated:
 
-* - b_ind:      Indexes measurements according to total b-values
+- b_ind:      Indexes measurements according to total b-values
 
-* - bd_ind:     Indexes measurements according to b-anisotropy (b_delta)
+- bd_ind:     Indexes measurements according to b-anisotropy (b_delta)
 
-* - be_ind:     Indexes measurements according to b-asymmetry (b_eta)
+- be_ind:     Indexes measurements according to b-asymmetry (b_eta)
 
-* - br_ind:     Indexes measurements according to b-tensor rotations
+- br_ind:     Indexes measurements according to b-tensor rotations
 
 
 
